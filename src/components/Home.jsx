@@ -1,20 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "./Header"
 import Navigation from "./Navigation"
 import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Grid from "@mui/material/Grid"
-import CardMedia from "@mui/material/CardMedia"
 
 export default function Home(){
+	useEffect(() => {
+		document.querySelector("video").play()
+	}, [])
+
 	return(
 		<>
 			<Header />
 			<Navigation />
-			<video autoplay loop>
-				<source src="/ibicom.mp4" />
-			Sorry your browser does not support embedded videos.
-			</video>
+			<Box component="video" src="ibicom.mp4" playsinline muted autoplay loop sx={{position: 'absolute', top: '0', left: '0', height: '100vh', width: '100vw', objectFit: 'cover'}}/>
 		</>
 	)
 }
