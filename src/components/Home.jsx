@@ -11,7 +11,6 @@ export default function Home(){
 			<Header />
 			<Navigation />
 			<Box component="img" src="/see.jpg" sx={{height: '100vh', width: '100vw', objetFit:'cover', position: 'absolute', top: '0', right: '0', zIndex: '-1'}}/>
-
 		</>
 	)
 }
