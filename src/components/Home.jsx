@@ -10,7 +10,7 @@ export default function Home(){
 		<>
 			<Header />
 			<Navigation />
-			<Box component="img" src="/home.webp" sx={{height: '100vh', width: '100vw', objetFit:'cover', position: 'absolute', top: '0', right: '0', zIndex: '-1'}}/>
+			<Box component="img" src="/see.jpg" sx={{height: '100vh', width: '100vw', objetFit:'cover', position: 'absolute', top: '0', right: '0', zIndex: '-1'}}/>
 
 		</>
 	)
