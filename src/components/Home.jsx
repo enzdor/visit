@@ -4,13 +4,17 @@ import Navigation from "./Navigation"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
+import CardMedia from "@mui/material/CardMedia"
 
 export default function Home(){
 	return(
 		<>
 			<Header />
 			<Navigation />
-			<Box component="img" src="/see.jpg" sx={{height: '100vh', width: '100vw', objetFit:'cover', position: 'absolute', top: '0', right: '0', zIndex: '-1'}}/>
+			<video autoplay loop>
+				<source src="/ibicom.mp4" />
+			Sorry your browser does not support embedded videos.
+			</video>
 		</>
 	)
 }
