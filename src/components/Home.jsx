@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header"
 import Navigation from "./Navigation"
 import Box from "@mui/material/Box"
@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack"
 import Hidden from "@mui/material/Hidden"
 import Fade from "@mui/material/Fade"
 import Grow from "@mui/material/Grow"
+import { useSpring, animated } from "react-spring"
 import { useInView } from "react-intersection-observer"
 
 export default function Home(){
@@ -18,6 +19,7 @@ export default function Home(){
 
 	const [ref1, inView1] = useInView({threshold: 0.4})
 	const [ref2, inView2] = useInView({threshold: 0.2})
+	const [ref3, inView3] = useInView({threshold: 0.4})
 
 	return(
 		<>
@@ -52,32 +54,47 @@ export default function Home(){
 			<Box ref={ref2} sx={{height: {sm: '80vh'}, width: '100vw', overflow: 'hidden', bgcolor: '#EBF5DF'}}>
 				<Grid container>
 					<Grow in={inView2}>
-					<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
-						<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
-							<Typography variant="h2" color="primary">Nature</Typography>
-							<Typography variant="h4" color="secondary">Explore it</Typography>
-						</Stack>
-						<Box component="img" src="hike.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(90%)'}} />
-					</Grid>
+						<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
+							<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
+								<Typography variant="h2" color="primary">Nature</Typography>
+								<Typography variant="h4" color="secondary">Explore it</Typography>
+							</Stack>
+							<Box component="img" src="hike.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(50%)'}} />
+						</Grid>
 					</Grow>
 					<Grow in={inView2}>
-					<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
-						<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
-							<Typography variant="h2" color="primary">Sea</Typography>
-							<Typography variant="h4" color="secondary">Enjoy it</Typography>
-						</Stack>
-						<Box component="img" src="city.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(90%)'}} />
-					</Grid>
+						<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
+							<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
+								<Typography variant="h2" color="primary">Sea</Typography>
+								<Typography variant="h4" color="secondary">Enjoy it</Typography>
+							</Stack>
+							<Box component="img" src="city.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(60%)'}} />
+						</Grid>
 					</Grow>
-					<Grow in={inView2}>
-					<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
-						<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
-							<Typography variant="h2" color="primary">City</Typography>
-							<Typography variant="h4" color="secondary">Discover it</Typography>
-						</Stack>
-						<Box component="img" src="sea.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(90%)'}} />
-					</Grid>
+						<Grow in={inView2}>
+						<Grid item xs={12} sm={4} sx={{position: 'relative'}}>
+							<Stack sx={{transform: 'translate(-50%, -50%)', zIndex: '3', position: 'absolute', left: '50%', top: '50%'}}>
+								<Typography variant="h2" color="primary">City</Typography>
+								<Typography variant="h4" color="secondary">Discover it</Typography>
+							</Stack>
+							<Box component="img" src="sea.jpg" sx={{height: '80vh', objectFit: 'cover', filter: 'grayscale(50%)'}} />
+						</Grid>
 					</Grow>
+				</Grid>
+			</Box>
+			<Box ref={ref3} sx={{height: {sm: '100vh'}, width: '100vw', overflow: 'hidden', bgcolor: '#EBF5DF', display: 'flex', displayDirection: 'column', alignItems: 'center'}}>
+				<Grid container sx={{width: {xs: '90%', sm: '80%'}, mx: {xs: '5%', sm: '10%'}, py: '2rem', display: 'flex', displayDirection: 'column', alignItems: 'center'}}>
+					<Grid item xs={12} sm={6}>
+						<Fade in={inView3}>
+						<Box component="img" src="person.jpg" sx={{height: '80vh', objectFit: 'cover', width: {xs: '90vw', sm: '30vw'}}} />
+						</Fade>
+					</Grid>
+					<Grid item xs={12} sm={6}>
+						<Stack spacing={1}>
+							<Typography variant="h4" color="secondary">Tell us your story</Typography>
+							<Typography variant="h6" color="primary">We would love to hear anything good you have to say about our beatiful and perfect island. Share your experience with others so that they don't miss out.</Typography>
+						</Stack>
+					</Grid>
 				</Grid>
 			</Box>
 		</>
