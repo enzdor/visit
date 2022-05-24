@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Header from "./Header"
 import Navigation from "./Navigation"
 import Box from "@mui/material/Box"
@@ -9,7 +9,6 @@ import Stack from "@mui/material/Stack"
 import Hidden from "@mui/material/Hidden"
 import Fade from "@mui/material/Fade"
 import Grow from "@mui/material/Grow"
-import { useSpring, animated } from "react-spring"
 import { useInView } from "react-intersection-observer"
 
 export default function Home(){
